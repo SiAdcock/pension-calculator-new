@@ -1,0 +1,36 @@
+.result__ordinary, .result__avc, .next-steps {
+    display: none;
+
+    &.visible {
+        display: block;
+    }
+}
+
+.pension-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    max-width: 300px;
+}
+
+.contribution-option-group {
+
+}
+
+datalist {
+  display: flex;
+  justify-content: space-between;
+  width: 200px;
+  /* align first label with the first marker */
+  box-sizing: border-box;
+  padding-left: 3px;
+}
+
+option {
+  padding: 0;
+}
+
+input[type="range"] {
+  width: 200px;
+  margin: 0;
+}

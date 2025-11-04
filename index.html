@@ -1,0 +1,108 @@
+<html>
+<head>
+    <title>Pension Calculator</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <h1>Pension Calculator</h1>
+    <p>
+        By adding AVCs (Additional Voluntary Contributions), you can add more money 
+        to your pension, and get additional contributions from the Guardian.
+    </p>
+    <form id="pension-form" class="pension-form">
+        <label for="age">Your Age:</label>
+        <input type="number" id="age" name="age" required>
+
+        <label for="salary">Your Salary:</label>
+        <input type="number" id="salary" name="salary" required>
+
+        <fieldset name="contribution-option-group">
+            <legend>Contribution option</legend>
+            <label for="contribution-option-none">None</label>
+            <input type="radio" id="contribution-option-none" name="contribution-option" value="none" class="contribution-option">
+            <label for="contribution-option-half">Half</label>
+            <input type="radio" id="contribution-option-half" name="contribution-option" value="half" class="contribution-option">            
+            <label for="contribution-option-full">Full</label>
+            <input type="radio" id="contribution-option-full" name="contribution-option" value="full" class="contribution-option" checked>
+        </fieldset>
+
+        <button type="button" id="calculate-ordinary-contribution">Calculate Pension</button>
+    </form>
+    
+
+    <article id="result" class="result">
+        <section class="result__ordinary">
+            <h2>Pension contribution</h2>
+            <p id="ordinary-contribution-rate">
+                <span id="ordinary-contribution-rate-you"></span>%
+                (You) +
+                <span id="ordinary-contribution-rate-guardian"></span>%
+                (Guardian) 
+            </p>
+            <p id="ordinary-contribution">
+                £<span id="ordinary-contribution-you"></span>
+                (You) +
+                £<span id="ordinary-contribution-guardian"></span>
+                (Guardian) 
+            </p>
+            <p id="ordinary-contribution-total">
+                <strong>Total: £<span id="ordinary-contribution-total-amount"></span></strong>
+            </p>
+        </section>
+
+        <section class="result__avc">
+            <h2>Additional voluntary contributions (AVCs)</h2>
+            <input 
+                type="range" 
+                id="avc-range" 
+                name="avcs" 
+                min="0.05" 
+                max="0.1" 
+                step="0.01" 
+                list="avc-values"
+                value="0.05">
+            <datalist id="avc-values">
+                <option value="0.05" label="5"></option>
+                <option value="0.06"></option>
+                <option value="0.07"></option>
+                <option value="0.08"></option>
+                <option value="0.09"></option>
+                <option value="0.1" label="10"></option>
+            </datalist>
+
+            <p id="avc-contribution-rate">
+                <span id="avc-contribution-rate-you"></span>%
+                (You) +
+                <span id="avc-contribution-rate-guardian"></span>%
+                (Guardian)
+            </p>
+            <p id="avc-contribution">
+                £<span id="avc-contribution-you"></span>
+                (You) +
+                £<span id="avc-contribution-guardian"></span>
+                (Guardian)
+            </p>
+            <p id="avc-contribution-total">
+                <strong>Total pension contribution: £<span id="avc-contribution-total-amount"></span>
+                representing <span id="avc-contribution-total-rate"></span>% of your salary.</strong>
+            </p>
+        </section>
+        <section class="next-steps">
+            <h2>Next Steps</h2>
+            <p>
+                If you would like to find out how much you currently 
+                contribute to your pension, you can email 
+                <a href="mailto:gnm.payroll@theguardian.com">gnm.payroll@theguardian.com</a>.
+            </p>
+            <p>
+                You can also complete a 
+                <a href="https://www20.landg.com/DocumentLibraryWeb/Document?lgrouter=CommApp&targetApp=MANAGEYOURSCHEME_DOCUMENTLIBRARY_ENTRY&reference=theguardian_permanent_contribution_form.pdf">
+                    pensions contributions change form
+                </a>, 
+                which you will need to drop off with the payroll team in people services.
+            </p>
+    </article>
+
+    <script src="script.js"></script>
+</body>
+</html>
