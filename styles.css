@@ -1,20 +1,88 @@
-.result__ordinary, .result__avc, .next-steps {
-    display: none;
 
-    &.visible {
-        display: block;
-    }
+/* === Base styles === */
+* {
+  box-sizing: border-box;
 }
 
-.pension-form {
-    display: flex;
-    flex-direction: column;
-    gap: 1em;
-    max-width: 300px;
+body {
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  background-color: #f8f9fa;
+  color: #222;
+  margin: 0;
+  padding: 2rem;
+  line-height: 1.6;
 }
 
-.contribution-option-group {
+h1, h2, legend {
+  color: #003366;
+}
 
+h1 {
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+p {
+  max-width: 650px;
+  margin: 0 auto 1rem;
+}
+
+/* === Form styling === */
+form.pension-form {
+  background: #fff;
+  border-radius: 10px;
+  padding: 1.5rem 2rem;
+  max-width: 600px;
+  margin: 2rem auto;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+
+form label {
+  display: block;
+  margin-top: 1rem;
+  font-weight: 600;
+}
+
+form input[type="number"],
+form input[type="range"] {
+  width: 100%;
+  padding: 0.5rem;
+  margin-top: 0.3rem;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  font-size: 1rem;
+}
+
+fieldset {
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  padding: 1rem;
+  margin-top: 1.5rem;
+}
+
+legend {
+  font-weight: 600;
+  padding: 0 0.5rem;
+}
+
+.contribution-option {
+  margin-right: 0.5rem;
+}
+
+button {
+  margin-top: 1.5rem;
+  padding: 0.75rem 1.25rem;
+  border: none;
+  border-radius: 6px;
+  background-color: #0077cc;
+  color: #fff;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+button:hover {
+  background-color: #005fa3;
 }
 
 datalist {
@@ -26,11 +94,68 @@ datalist {
   padding-left: 3px;
 }
 
-option {
-  padding: 0;
-}
-
 input[type="range"] {
   width: 200px;
   margin: 0;
+}
+/* === Results styling === */
+.result__ordinary, .result__avc, .next-steps {
+    display: none;
+
+    &.visible {
+        display: block;
+    }
+}
+
+article.result {
+  max-width: 650px;
+  margin: 2rem auto;
+  background: #fff;
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+
+.result section + section {
+  margin-top: 2rem;
+}
+
+.result h2 {
+  margin-bottom: 0.5rem;
+  border-bottom: 2px solid #e0e0e0;
+  padding-bottom: 0.25rem;
+}
+
+.result p {
+  margin: 0.5rem 0;
+  font-size: 1rem;
+}
+
+.result strong {
+  color: #003366;
+}
+
+/* === Links === */
+a {
+  color: #0077cc;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* === Responsive tweaks === */
+@media (max-width: 600px) {
+  body {
+    padding: 1rem;
+  }
+
+  form.pension-form, article.result {
+    padding: 1.25rem;
+  }
+
+  button {
+    width: 100%;
+  }
 }

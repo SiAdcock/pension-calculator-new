@@ -45,7 +45,7 @@ const getEmployerAvcRate = (avc) => {
 const calculatePensionAvcs = (age, salary, avc) =>{    
     const monthlySalary = salary / 12;
     const employerAvcRate = getEmployerAvcRate(avc);
-    const pensionContributionPersonal = (avc) * monthlySalary;
+    const pensionContributionPersonal = (ORDINARY_PERSONAL_CONTRIBUTION_RATE + avc) * monthlySalary;
     const pensionContributionEmployer = (getEmployerContributionRate(age) + employerAvcRate) * monthlySalary;
 
     return {
@@ -79,7 +79,7 @@ const updatePensionContributionOrdinary = (age, option, {personal, employer, tot
 }
 
 const updatePensionContributionAvcs = (age, avc, {personal, employer, total}) => {
-    document.getElementById('avc-contribution-rate-you').innerText = (avc * 100).toFixed(1);
+    document.getElementById('avc-contribution-rate-you').innerText = ((avc + ORDINARY_PERSONAL_CONTRIBUTION_RATE) * 100).toFixed(1);
     document.getElementById('avc-contribution-rate-guardian').innerText = ((getEmployerContributionRate(age) + getEmployerAvcRate(avc)) * 100).toFixed(1);
     document.getElementById('avc-contribution-you').innerText = personal.toFixed(2);
     document.getElementById('avc-contribution-guardian').innerText = employer.toFixed(2);
